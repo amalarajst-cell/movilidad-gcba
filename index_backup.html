@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Manual Seguridad Vial - GCBA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1D3557 0%, #457B9D 100%);
+            color: #E8F4F8;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        header {
+            background: rgba(0, 180, 216, 0.2);
+            border: 2px solid #00B4D8;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FFB703;
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #90E0EF;
+            font-size: 0.95rem;
+        }
+
+        .chapter {
+            background: rgba(29, 53, 87, 0.8);
+            border: 2px solid #00B4D8;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .chapter h2 {
+            color: #FFB703;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #FB8500;
+            padding-bottom: 8px;
+        }
+
+        .chapter h3 {
+            color: #FB8500;
+            font-size: 1.1rem;
+            margin: 16px 0 8px 0;
+        }
+
+        .chapter p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .chapter ul {
+            margin: 12px 0 12px 24px;
+        }
+
+        .chapter li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .alert {
+            padding: 14px;
+            border-radius: 8px;
+            margin: 14px 0;
+            border-left: 4px solid;
+            font-size: 0.9rem;
+        }
+
+        .alert-warning {
+            background: rgba(255, 183, 3, 0.15);
+            border-color: #FFB703;
+            color: #FFB703;
+        }
+
+        .alert-danger {
+            background: rgba(255, 68, 68, 0.15);
+            border-color: #FF4444;
+            color: #FF9999;
+        }
+
+        .alert-info {
+            background: rgba(0, 180, 216, 0.15);
+            border-color: #00B4D8;
+            color: #90E0EF;
+        }
+
+        strong {
+            color: #FFB703;
+            font-weight: 600;
+        }
+
+        .toc {
+            background: rgba(0, 180, 216, 0.1);
+            border: 2px solid #00B4D8;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .toc h2 {
+            color: #FFB703;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+        }
+
+        .toc li:last-child {
+            border-bottom: none;
+        }
+
+        .toc a {
+            color: #90E0EF;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #90E0EF;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Manual de Seguridad Vial</h1>
+            <p class="subtitle">Centro de Formación Profesional - GCBA</p>
+            <p class="subtitle">Manual Interactivo de Conducción Segura</p>
+        </header>
+
+        <div class="toc">
+            <h2>Contenido del Manual</h2>
+            <ul>
+                <li><a href="#cap1">Cap. 1: Percepción de la Velocidad y Distancias de Frenado</a></li>
+                <li><a href="#cap2">Cap. 2: Gestión de la Mirada y Zonas Ciegas</a></li>
+                <li><a href="#cap3">Cap. 3: La Fragilidad del Cuerpo Humano</a></li>
+                <li><a href="#cap4">Cap. 4: Fuerza de Inercia y Fuerza de Fricción</a></li>
+                <li><a href="#cap5">Cap. 5: Condiciones Meteorológicas Adversas</a></li>
+            </ul>
+        </div>
+
+        <div id="cap1" class="chapter">
+            <h2>Cap. 1: Percepción de la Velocidad y Distancias de Frenado</h2>
+
+            <p>La velocidad es uno de los factores más determinantes en la seguridad vial. A mayor velocidad, mayor es
+                la energía cinética involucrada y mayor la distancia necesaria para detenerse.</p>
+
+            <div class="alert alert-danger">
+                <strong>Dato Crítico:</strong> Si duplicas la velocidad, cuadruplicas la energía de impacto.
+            </div>
+
+            <h3>Distancia de Detención</h3>
+            <p>La distancia total necesaria para detener un vehículo consta de dos componentes:</p>
+            <ul>
+                <li><strong>Distancia de Reacción:</strong> Espacio recorrido mientras el conductor percibe el peligro y
+                    reacciona (aproximadamente 1.5 segundos)</li>
+                <li><strong>Distancia de Frenado:</strong> Espacio que recorre el vehículo desde que se aplican los
+                    frenos hasta detenerse completamente</li>
+            </ul>
+
+            <h3>Ejemplos Prácticos</h3>
+            <ul>
+                <li>A 40 km/h: ~22 metros totales</li>
+                <li>A 60 km/h: ~45 metros totales</li>
+                <li>A 80 km/h: ~75 metros totales</li>
+                <li>A 100 km/h: ~110 metros totales</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Importante:</strong> Estas distancias son para condiciones ideales (asfalto seco, neumáticos en
+                buen estado, conductor alerta).
+            </div>
+        </div>
+
+        <div id="cap2" class="chapter">
+            <h2>Cap. 2: Gestión de la Mirada y Zonas Ciegas</h2>
+
+            <p>El 90% de la información necesaria para conducir ingresa al cerebro a través de los ojos. La gestión
+                correcta de la mirada es fundamental para una conducción segura.</p>
+
+            <h3>Mirada Panorámica</h3>
+            <p>Los conductores expertos mantienen una mirada amplia que abarca:</p>
+            <ul>
+                <li>Punto focal lejano (12-15 segundos adelante)</li>
+                <li>Visión periférica activa</li>
+                <li>Revisión frecuente de espejos</li>
+                <li>Anticipación de movimientos de otros usuarios</li>
+            </ul>
+
+            <h3>Zonas Ciegas de Camiones</h3>
+            <p>Los camiones tienen cuatro zonas principales donde NO pueden ver a los motociclistas:</p>
+
+            <div class="alert alert-danger">
+                <strong>ZONA FRONTAL:</strong> Hasta 6 metros adelante del camión son invisibles para el conductor.
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>ZONA LATERAL DERECHA:</strong> La más peligrosa. TODO el lateral derecho es una zona ciega.
+                Peligro crítico en giros a la derecha (efecto Off-Tracking).
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>ZONA LATERAL IZQUIERDA:</strong> Aunque el conductor tiene espejo de ese lado, hay bandas ciegas
+                en ciertos ángulos.
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>ZONA TRASERA:</strong> Hasta 30 metros detrás del camión son invisibles para el conductor.
+            </div>
+
+            <h3>Regla de Seguridad</h3>
+            <p><strong>Si tú no ves al conductor del camión en sus espejos, él tampoco te ve a ti.</strong></p>
+        </div>
+
+        <div id="cap3" class="chapter">
+            <h2>Cap. 3: La Fragilidad del Cuerpo Humano</h2>
+
+            <p>Los motociclistas son usuarios vulnerables de la vía pública. La falta de una estructura protectora los
+                expone a lesiones graves en caso de siniestros.</p>
+
+            <div class="alert alert-info">
+                <strong>Estadística Vital:</strong> El casco reduce un 85% las probabilidades de lesiones graves
+                (fractura de cráneo y daño cerebral).
+            </div>
+
+            <h3>Equivalencia de Impactos</h3>
+            <p>Chocar en moto equivale a caer desde una altura considerable:</p>
+            <ul>
+                <li>30 km/h = Caer desde 3.5 metros (1 piso)</li>
+                <li>60 km/h = Caer desde 14 metros (5 pisos)</li>
+                <li>80 km/h = Caer desde 25 metros (8 pisos)</li>
+                <li>100 km/h = Caer desde 39 metros (13 pisos)</li>
+            </ul>
+
+            <h3>Equipamiento de Protección</h3>
+            <ul>
+                <li><strong>Casco Integral:</strong> Obligatorio, homologado IRAM AITA 3621, vida útil 3 años</li>
+                <li><strong>Campera con Protección:</strong> Coderas, hombros y espalda reforzados</li>
+                <li><strong>Guantes:</strong> Protegen manos en caídas (lesiones muy frecuentes)</li>
+                <li><strong>Botas:</strong> Protección de tobillos y mejor agarre</li>
+                <li><strong>Pantalones Reforzados:</strong> Evitan abrasiones graves</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Recomendación:</strong> Usar SIEMPRE todo el equipo, incluso en trayectos cortos. La mayoría de
+                los siniestros ocurren cerca del hogar.
+            </div>
+        </div>
+
+        <div id="cap4" class="chapter">
+            <h2>Cap. 4: Fuerza de Inercia y Fuerza de Fricción</h2>
+
+            <p>Comprender las fuerzas físicas que actúan durante la conducción permite anticipar y manejar situaciones
+                de riesgo.</p>
+
+            <h3>Fuerza de Inercia</h3>
+            <p>La inercia es la resistencia de un objeto a cambiar su estado de movimiento. En conducción:</p>
+            <ul>
+                <li>Un vehículo en movimiento tiende a seguir en línea recta</li>
+                <li>Requiere fuerza (fricción) para cambiar de dirección o detenerse</li>
+                <li>A mayor velocidad, mayor inercia, más difícil frenar o girar</li>
+            </ul>
+
+            <h3>Fuerza de Fricción</h3>
+            <p>La fricción es la adherencia entre los neumáticos y la calzada. Depende de:</p>
+            <ul>
+                <li><strong>Estado de los neumáticos:</strong> Dibujo, presión, desgaste</li>
+                <li><strong>Superficie:</strong> Asfalto seco tiene mayor fricción que mojado</li>
+                <li><strong>Carga:</strong> Distribución del peso en la moto</li>
+                <li><strong>Temperatura:</strong> Neumáticos fríos tienen menos agarre</li>
+            </ul>
+
+            <h3>Sistemas de Frenado</h3>
+
+            <p><strong>ABS (Sistema Antibloqueo):</strong></p>
+            <ul>
+                <li>Evita que las ruedas se bloqueen al frenar</li>
+                <li>Permite mantener el control direccional</li>
+                <li>Fundamental en frenadas de emergencia</li>
+            </ul>
+
+            <p><strong>CBS (Sistema de Frenado Combinado):</strong></p>
+            <ul>
+                <li>Distribuye automáticamente la fuerza entre ambas ruedas</li>
+                <li>Ideal para conductores principiantes</li>
+                <li>Frenado equilibrado sin técnica avanzada</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Recomendación:</strong> Practicar frenadas en lugares seguros para conocer cómo responde tu
+                moto.
+            </div>
+        </div>
+
+        <div id="cap5" class="chapter">
+            <h2>Cap. 5: Condiciones Meteorológicas Adversas</h2>
+
+            <p>El clima puede cambiar rápidamente y afectar significativamente la seguridad. Es fundamental saber cómo
+                adaptar la conducción.</p>
+
+            <h3>Lluvia</h3>
+            <ul>
+                <li>Reducir velocidad 20-30%</li>
+                <li>Aumentar distancia de seguimiento al doble</li>
+                <li>Evitar charcos (riesgo de aquaplaning)</li>
+                <li>No frenar ni girar sobre pintura blanca mojada</li>
+                <li>Usar equipo impermeable</li>
+            </ul>
+
+            <div class="alert alert-danger">
+                <strong>Aquaplaning:</strong> Cuando una capa de agua hace que los neumáticos pierdan contacto con el
+                asfalto. Extremadamente peligroso en motos.
+            </div>
+
+            <h3>Viento Fuerte</h3>
+            <ul>
+                <li>Sujetar firmemente el manubrio</li>
+                <li>Anticipar efecto Venturi cerca de camiones</li>
+                <li>Reducir velocidad en puentes y zonas abiertas</li>
+                <li>Inclinar el cuerpo contra el viento</li>
+                <li>Usar protección ocular obligatoria</li>
+            </ul>
+
+            <h3>Niebla</h3>
+            <ul>
+                <li>Usar luces bajas (las altas rebotan y enceguecen)</li>
+                <li>Reducir velocidad drásticamente</li>
+                <li>Usar referencias laterales (líneas demarcatorias)</li>
+                <li>Si no ves nada, detente fuera de la calzada</li>
+            </ul>
+
+            <h3>Frío Extremo</h3>
+            <ul>
+                <li><strong>Primera capa:</strong> Absorbe humedad (remeras térmicas)</li>
+                <li><strong>Segunda capa:</strong> Aislamiento térmico (polar, lana)</li>
+                <li><strong>Tercera capa:</strong> Protección externa (impermeable y rompevientos)</li>
+                <li>Atención a placas de hielo en puentes</li>
+            </ul>
+
+            <h3>Conducción Nocturna</h3>
+            <ul>
+                <li>Usar luces bajas en ciudad, altas en ruta</li>
+                <li>Reducir velocidad (campo visual limitado)</li>
+                <li>Si te encandilan, mirar al borde derecho</li>
+                <li>Verificar que tus luces funcionen antes de salir</li>
+                <li>Usar ropa reflectante</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Consejo General:</strong> Si las condiciones climáticas son extremas, considera reprogramar el
+                viaje. Ningún destino vale tu seguridad.
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Manual de Seguridad Vial</strong></p>
+            <p>Centro de Formación Profesional - GCBA</p>
+            <p>Versión Móvil - 2026</p>
+        </footer>
+    </div>
+</body>
+
+</html>
