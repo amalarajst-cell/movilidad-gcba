@@ -136,7 +136,7 @@
 
         .chapter-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
             gap: 24px;
             margin-bottom: 40px;
         }
@@ -436,29 +436,41 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .navbar {
-                padding: 1rem 5%;
+                padding: 0.8rem 5%;
             }
 
             .nav-brand {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
+            }
+
+            .hero {
+                padding: 100px 5% 30px;
+                min-height: auto;
             }
 
             .hero-title {
-                font-size: 3.5rem;
+                font-size: clamp(2.2rem, 8vw, 3.5rem);
+                margin-bottom: 16px;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                margin-bottom: 24px;
             }
 
             .chapter {
-                padding: 16px;
+                padding: 20px 16px;
             }
 
             .h5p-btn,
             .btn-primary {
-                font-size: 1rem;
-                padding: 15px;
+                font-size: 0.95rem;
+                padding: 14px;
+            }
+
+            .modal-content {
+                padding: 24px;
+                width: 95%;
             }
         }
 
@@ -569,6 +581,7 @@
             border-radius: 8px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
             width: 320px;
+            max-width: calc(100vw - 32px);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
