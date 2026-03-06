@@ -7,14 +7,17 @@
 
 :root {
     /* GCBA Official Colors */
-    --gcba-navy: #1D3557;
+    --gcba-navy: #001d3d;
+    --gcba-navy-dark: #000814;
     --gcba-cyan: #00B4D8;
-    --gcba-yellow: #FFB703;
-    --gcba-orange: #FB8500;
+    --gcba-yellow: #fecb2f;
+    --gcba-orange: #ff4139;
+    /* Brand Red */
     --gcba-light-cyan: #90E0EF;
     --white: #FFFFFF;
     --light-grey: #E8F4F8;
-    --danger-red: #FF4444;
+    --danger-red: #ff4139;
+    /* Using Brand Red for danger too */
     --success-green: #06D6A0;
 
     /* Layout */
@@ -25,13 +28,15 @@
     --spacing-lg: 32px;
 
     /* Typography */
-    --font-family: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
     font-family: var(--font-family);
-    background-color: var(--gcba-navy);
-    color: var(--light-grey);
+    background: radial-gradient(circle at center, var(--gcba-navy) 0%, var(--gcba-navy-dark) 100%);
+    background-attachment: fixed;
+    color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -81,7 +86,9 @@ body {
 
 .sidebar-header h1 {
     font-size: 1.5rem;
-    font-weight: 900;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-style: italic;
     color: var(--gcba-yellow);
     margin-bottom: var(--spacing-xs);
     text-transform: uppercase;
@@ -208,8 +215,10 @@ body {
 
 .chapter-title {
     font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--gcba-yellow);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-style: italic;
+    color: var(--white);
     margin-bottom: var(--spacing-sm);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -217,7 +226,8 @@ body {
 
 .chapter-subtitle {
     font-size: 1.125rem;
-    color: var(--light-grey);
+    font-family: var(--font-family);
+    color: var(--gcba-yellow);
     opacity: 0.9;
 }
 
@@ -256,8 +266,9 @@ body {
 
 /* ===== Widgets ===== */
 .widget {
-    background: linear-gradient(135deg, rgba(0, 180, 216, 0.1) 0%, rgba(29, 53, 87, 0.3) 100%);
-    border: 2px solid var(--gcba-cyan);
+    background: rgba(0, 29, 61, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: var(--spacing-lg);
     margin: var(--spacing-lg) 0;
@@ -507,8 +518,9 @@ body {
 
 /* ===== Quiz ===== */
 .quiz-container {
-    background: linear-gradient(135deg, rgba(0, 180, 216, 0.1) 0%, rgba(29, 53, 87, 0.3) 100%);
-    border: 2px solid var(--gcba-cyan);
+    background: rgba(0, 29, 61, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: var(--spacing-lg);
     margin: var(--spacing-lg) 0;
@@ -590,11 +602,13 @@ body {
 .btn {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--gcba-yellow);
-    color: var(--gcba-navy);
+    background-color: var(--gcba-orange);
+    color: var(--white);
     border: none;
     border-radius: 8px;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-style: italic;
     font-size: 1rem;
     text-decoration: none;
     text-align: center;
@@ -602,28 +616,30 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    background-color: var(--gcba-orange);
-    box-shadow: 0 6px 20px rgba(251, 133, 0, 0.4);
+    transform: translate(-2px, -2px);
+    background-color: #ff5a53;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 1);
 }
 
 .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 .btn-primary {
-    background-color: var(--gcba-yellow);
-    color: var(--gcba-navy);
+    background-color: var(--gcba-orange);
+    color: var(--white);
 }
 
 .btn-secondary {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--gcba-cyan);
+    background-color: var(--gcba-yellow);
+    color: var(--gcba-navy-dark);
 }
 
 .btn-block {

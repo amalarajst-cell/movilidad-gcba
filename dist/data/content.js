@@ -310,12 +310,14 @@ const COURSE_DATA = {
             <div class="alert alert-info" style="background: linear-gradient(135deg, #457B9D 0%, #1D3557 100%); color: white; border: none; text-align: center;">
            <h4 style="color: #FFB703; margin-top: 0;">Contenido Interactivo H5P Original</h4>
                 <p style="margin-bottom: 1rem;">Accede al material interactivo completo con videos, cuestionarios embebidos y actividades adicionales.</p>
-                <a href="capitulo1_h5p.html" target="_blank" class="btn btn-primary" style="background-color: #FFB703; color: #1D3557; border: none; padding: 12px 28px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin: 0.5rem;">
-                    📚 Ver Contenido H5P Interactivo
-                </a>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #E9ECEF;">
-                    Este contenido se abre en una nueva pestaña y puede compartirse directamente por WhatsApp.
-                </p>
+                <div id="h5p-container-cap1" style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" style="background-color: #FFB703; color: #1D3557; border: none; padding: 12px 28px; border-radius: 5px; font-weight: bold; cursor: pointer;" onclick="window.open('https://app.lumi.education/run/ufYWM2', '_blank');">
+                        📚 Ver Contenido H5P Interactivo
+                    </button>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #E9ECEF;">
+                        Haz clic para abrir el contenido interactivo en una nueva pestaña (recomendado para celular).
+                    </p>
+                </div>
             </div>
         `,
         widget: 'multiple',
