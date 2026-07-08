@@ -702,6 +702,91 @@
         html.chapter-view-mode .main-content {
             padding-top: 40px;
         }
+
+        /* Special Training Room Card Styles */
+        .chapter.special-card {
+            border: 2px solid var(--gcba-yellow);
+            box-shadow: 0 4px 20px rgba(254, 203, 47, 0.15);
+            position: relative;
+            background: #1f2532;
+        }
+
+        .chapter.special-card:hover {
+            border-color: var(--white);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .special-icon-wrapper {
+            border: 1.5px solid rgba(254, 203, 47, 0.4);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(254, 203, 47, 0.05);
+        }
+
+        .special-icon-wrapper svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-badge.special-tag {
+            color: var(--gcba-yellow);
+            border: 1.5px solid var(--gcba-yellow);
+            background: transparent;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .chapter h2.card-title.special-title {
+            color: var(--gcba-yellow);
+            font-size: 1.55rem;
+            font-style: italic;
+            font-weight: 900;
+            margin-top: 15px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .special-desc {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .special-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .special-btn {
+            background: var(--gcba-yellow);
+            color: var(--gcba-navy-dark) !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 12px 18px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            width: 100%;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-btn:hover {
+            background: var(--white);
+            transform: scale(1.01);
+        }
     </style>
 
 </head>
@@ -718,12 +803,14 @@
                     <li><a href="javascript:void(0)"
                             onclick="openActivityModal('actividades-extra/index.html?embedded=true#/introduccion')"
                             class="dropdown-link">INTRODUCCIÓN</a></li>
-                    <li><a href="javascript:void(0)"
-                            onclick="openActivityModal('actividades-extra/index.html?embedded=true#/modules')"
-                            class="dropdown-link">SEÑALES DE TRÁNSITO</a></li>
+
                     <li><a href="javascript:void(0)"
                             onclick="openActivityModal('actividades-extra/index.html?embedded=true#/prioridades')"
                             class="dropdown-link">PRIORIDADES DE PASO</a></li>
+
+                    <li><a href="javascript:void(0)"
+                            onclick="openActivityModal('formacion-vial-extreme/index.html')"
+                            class="dropdown-link" style="color: var(--gcba-yellow); font-weight: bold;">SALA DE ENTRENAMIENTO</a></li>
                 </ul>
             </div>
         </div>
@@ -1068,6 +1155,160 @@
                 </div>
             </div>
 
+            <div id="cap6" class="chapter">
+                <a href="javascript:void(0)"
+                    onclick="openActivityModal('actividades-extra/index.html?embedded=true#/modules')"
+                    class="chapter-toggle" style="text-decoration:none; color:inherit; display:block;">
+                    <div class="card-header">
+                        <div class="card-icon-badge">
+                            <svg fill="none" stroke="var(--gcba-yellow)" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 2.5L4.2 6.8v4.4L12 15.5l7.8-4.3V6.8L12 2.5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 15.5v6M4.2 11.2l7.8 4.3 7.8-4.3" />
+                            </svg>
+                            <span class="card-badge">Capítulo 6</span>
+                        </div>
+                        <div class="card-arrow">&rarr;</div>
+                    </div>
+                    <h2 class="card-title">Señales Viales</h2>
+                </a>
+                <div class="chapter-content-body">
+
+                    <img src="senales_viales_hero.png" alt="Señales Viales - Tipos de señalización vial argentina"
+                        style="width:100%; border-radius:8px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.1);">
+
+                    <p>Las señales viales son el lenguaje universal de la vía pública. Conocerlas y respetarlas es
+                        fundamental para la seguridad de todos los usuarios del tránsito: conductores, motociclistas,
+                        ciclistas y peatones.</p>
+
+                    <div class="alert alert-info">
+                        <strong>Dato Clave:</strong> En Argentina, la señalización vial está regulada por la Ley
+                        Nacional de Tránsito N° 24.449 y sigue los estándares del Manual de Señalamiento Vial de la
+                        Dirección Nacional de Vialidad.
+                    </div>
+
+                    <h3>🔶 Señales Preventivas</h3>
+                    <p>Son de <strong>forma de rombo</strong> con fondo <strong>amarillo</strong> y símbolos negros.
+                        Advierten al conductor sobre peligros o situaciones especiales que se encontrará más adelante.
+                    </p>
+                    <ul>
+                        <li><strong>Curva peligrosa:</strong> Indica una curva pronunciada, reducir velocidad</li>
+                        <li><strong>Cruce de peatones:</strong> Zona donde cruzan peatones frecuentemente</li>
+                        <li><strong>Empalme lateral:</strong> Advierte la incorporación de otra vía</li>
+                        <li><strong>Estrechamiento de calzada:</strong> La vía se angosta más adelante</li>
+                        <li><strong>Paso a nivel:</strong> Cruce con vías del ferrocarril</li>
+                        <li><strong>Animales sueltos:</strong> Zona con posible presencia de animales en la vía</li>
+                    </ul>
+
+                    <div class="alert alert-warning">
+                        <strong>Importante:</strong> Las señales preventivas se ubican a una distancia previa al peligro
+                        para que el conductor tenga tiempo de reaccionar. En zona urbana: 100-150 m antes; en zona
+                        rural: 200-300 m antes.
+                    </div>
+
+                    <h3>🔴 Señales Reglamentarias</h3>
+                    <p>Son de <strong>forma circular</strong> con fondo <strong>blanco</strong> y borde
+                        <strong>rojo</strong>. Indican obligaciones, restricciones y prohibiciones que el conductor
+                        <strong>debe cumplir obligatoriamente</strong>.
+                    </p>
+                    <ul>
+                        <li><strong>PARE (octágono rojo):</strong> Detención total obligatoria antes de continuar</li>
+                        <li><strong>Velocidad máxima:</strong> Límite máximo permitido en esa vía</li>
+                        <li><strong>Prohibido estacionar:</strong> No se permite detenerse ni estacionar</li>
+                        <li><strong>Prohibido girar:</strong> No se puede doblar en la dirección indicada</li>
+                        <li><strong>Contramano:</strong> Prohibido circular en ese sentido</li>
+                        <li><strong>Ceda el paso:</strong> Debe dar prioridad a los vehículos de la otra vía</li>
+                    </ul>
+
+                    <div class="alert alert-danger">
+                        <strong>¡Atención!</strong> No respetar las señales reglamentarias es una infracción grave que
+                        puede generar multas, retención del vehículo y, lo más importante, poner en riesgo tu vida y la
+                        de los demás.
+                    </div>
+
+                    <h3>🟢 Señales Informativas</h3>
+                    <p>Son de <strong>forma rectangular</strong> con fondo <strong>verde</strong> (rutas y destinos) o
+                        <strong>azul</strong> (servicios). Brindan información útil sobre destinos, distancias y
+                        servicios disponibles.
+                    </p>
+                    <ul>
+                        <li><strong>Nombre de calle/ruta:</strong> Identifica la vía por la que se circula</li>
+                        <li><strong>Distancia a destinos:</strong> Kilómetros restantes a ciudades o localidades</li>
+                        <li><strong>Hospital:</strong> Cercanía de un centro de salud</li>
+                        <li><strong>Estación de servicio:</strong> Disponibilidad de combustible cercano</li>
+                        <li><strong>Estacionamiento permitido:</strong> Zona habilitada para estacionar</li>
+                        <li><strong>Teléfono de emergencia:</strong> Acceso a comunicación de auxilio</li>
+                    </ul>
+
+                    <h3>🟠 Señales Transitorias</h3>
+                    <p>Son de fondo <strong>naranja</strong> y se utilizan en zonas de obra o trabajos en la vía.
+                        Tienen carácter <strong>temporal</strong> y prevalecen sobre la señalización permanente.</p>
+                    <ul>
+                        <li><strong>Obreros trabajando:</strong> Presencia de personal en la calzada</li>
+                        <li><strong>Desvío:</strong> Camino alternativo por obras en la vía</li>
+                        <li><strong>Calzada irregular:</strong> Superficie en mal estado temporalmente</li>
+                        <li><strong>Fin de zona de obra:</strong> Retorno a condiciones normales de circulación</li>
+                    </ul>
+
+                    <div class="alert alert-warning">
+                        <strong>Recordá:</strong> En zonas de obra la velocidad máxima se reduce significativamente.
+                        Respetá siempre las indicaciones del personal de tránsito y las señales transitorias, ya que
+                        prevalecen sobre las señales permanentes.
+                    </div>
+
+                    <h3>Jerarquía de la Señalización</h3>
+                    <p>Cuando hay señales contradictorias, se respeta este orden de prioridad:</p>
+                    <ul>
+                        <li><strong>1°</strong> Indicaciones del agente de tránsito</li>
+                        <li><strong>2°</strong> Señales transitorias (obras)</li>
+                        <li><strong>3°</strong> Semáforo</li>
+                        <li><strong>4°</strong> Señales verticales (carteles)</li>
+                        <li><strong>5°</strong> Demarcación horizontal (pintado en el piso)</li>
+                    </ul>
+
+                    <div class="alert alert-info">
+                        <strong>Consejo para motociclistas:</strong> Prestá especial atención a las señales de
+                        velocidad máxima y a las zonas de curva. En moto, el margen de error es mucho menor que en un
+                        auto. Respetá siempre los límites indicados.
+                    </div>
+
+                    <a href="javascript:void(0)"
+                        onclick="openActivityModal('actividades-extra/index.html?embedded=true#/modules')"
+                        class="h5p-btn">
+                        📚 VER CONTENIDO INTERACTIVO — SEÑALES
+                    </a>
+                    <span class="h5p-hint">Se abrirá el módulo de Señales de Tránsito</span>
+                </div>
+            </div>
+
+            <!-- SALA DE ENTRENAMIENTO CAT. A (Especial) -->
+            <div id="sala-entrenamiento" class="chapter special-card">
+                <div class="card-header">
+                    <div class="card-icon-badge special-badge">
+                        <div class="special-icon-wrapper">
+                            <svg fill="none" stroke="var(--gcba-yellow)" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 18h6" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 18h7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 18l1.5 -6l6 1" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9l-4 2l-1 -2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 9l2 -2l4 1" />
+                            </svg>
+                        </div>
+                        <span class="card-badge special-tag">ESPECIAL</span>
+                    </div>
+                </div>
+                <h2 class="card-title special-title">SALA DE ENTRENAMIENTO CAT. A</h2>
+                <p class="special-desc">Estudiá secuencialmente las 502 preguntas del banco oficial de CABA o ponete a prueba con simulacros de examen personalizables de 10, 30 o 50 preguntas.</p>
+                <div class="special-divider"></div>
+                <a href="javascript:void(0)" onclick="openActivityModal('formacion-vial-extreme/index.html')" class="special-btn">
+                    <span>INGRESAR A LA SALA</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+
         </div> <!-- Cierra chapter-grid -->
 
         <footer>
@@ -1103,13 +1344,14 @@
                     <select class="form-input" id="loginCfp" required
                         style="cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=%22%23ffffff%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>'); background-repeat: no-repeat; background-position: right 10px center;">
                         <option value="" disabled selected>Selecciona tu Centro de Formación Profesional (CFP)</option>
-                        <option value="CFP N° 1">CFP N° 1: Río Cuarto 1993, Barracas</option>
-                        <option value="CFP N° 4">CFP N° 4: Carhué 2970, Mataderos</option>
-                        <option value="CFP N° 6">CFP N° 6: Av. Asamblea 153, Parque Chacabuco</option>
-                        <option value="CFP N° 7">CFP N° 7: Ramsay 2250, Belgrano</option>
-                        <option value="CFP N° 9">CFP N° 9: San José 1450, Constitución</option>
-                        <option value="CFP N° 24">CFP N° 24: Morón 2538, Flores</option>
-                        <option value="CFP N° 34">CFP N° 34: Av. Gral. Paz 5714, Lugano</option>
+                        <option value="CFP N° 1">CFP N° 1: RÍO CUARTO 1993 – BARRACAS</option>
+                        <option value="CFP N° 4">CFP N° 4: CARHUÉ 2970 – MATADEROS</option>
+                        <option value="CFP N° 6">CFP N° 6: ASAMBLEA 153 -PARQUE CHACABUCO</option>
+                        <option value="CFP N° 7">CFP N° 7: DRAGONES 2201- NUÑEZ</option>
+                        <option value="CFP N° 10">CFP N° 10: BARTOLOMÉ MITRE 970- SAN NICOLÁS</option>
+                        <option value="CFP N° 28">CFP N° 28: VENEZUELA 340 - SAN TELMO</option>
+                        <option value="CFP N° 34">CFP N° 34: BENITO QUINQUELA MARTÍN 1171 - LA BOCA</option>
+                        <option value="CFP N° 38">CFP N° 38: ALPACA 2474  – RETIRO</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-primary">INGRESAR &rarr;</button>

@@ -12,6 +12,7 @@ if (Test-Path "js") { Copy-Item "js" -Destination $dist -Recurse }
 if (Test-Path "data") { Copy-Item "data" -Destination $dist -Recurse }
 if (Test-Path "hero_bg.png") { Copy-Item "hero_bg.png" -Destination $dist }
 Copy-Item "h5p_capitulo*" -Destination $dist -Recurse
+if (Test-Path "formacion-vial-extreme") { Copy-Item "formacion-vial-extreme" -Destination $dist -Recurse }
 
 Write-Host "Creating zip archive..."
 if (Test-Path $zipFile) { Remove-Item $zipFile -Force }

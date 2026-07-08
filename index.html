@@ -702,6 +702,91 @@
         html.chapter-view-mode .main-content {
             padding-top: 40px;
         }
+
+        /* Special Training Room Card Styles */
+        .chapter.special-card {
+            border: 2px solid var(--gcba-yellow);
+            box-shadow: 0 4px 20px rgba(254, 203, 47, 0.15);
+            position: relative;
+            background: #1f2532;
+        }
+
+        .chapter.special-card:hover {
+            border-color: var(--white);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .special-icon-wrapper {
+            border: 1.5px solid rgba(254, 203, 47, 0.4);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(254, 203, 47, 0.05);
+        }
+
+        .special-icon-wrapper svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-badge.special-tag {
+            color: var(--gcba-yellow);
+            border: 1.5px solid var(--gcba-yellow);
+            background: transparent;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .chapter h2.card-title.special-title {
+            color: var(--gcba-yellow);
+            font-size: 1.55rem;
+            font-style: italic;
+            font-weight: 900;
+            margin-top: 15px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .special-desc {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .special-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .special-btn {
+            background: var(--gcba-yellow);
+            color: var(--gcba-navy-dark) !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 12px 18px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            width: 100%;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-btn:hover {
+            background: var(--white);
+            transform: scale(1.01);
+        }
     </style>
 
 </head>
@@ -722,6 +807,10 @@
                     <li><a href="javascript:void(0)"
                             onclick="openActivityModal('actividades-extra/index.html?embedded=true#/prioridades')"
                             class="dropdown-link">PRIORIDADES DE PASO</a></li>
+
+                    <li><a href="javascript:void(0)"
+                            onclick="openActivityModal('formacion-vial-extreme/index.html')"
+                            class="dropdown-link" style="color: var(--gcba-yellow); font-weight: bold;">SALA DE ENTRENAMIENTO</a></li>
                 </ul>
             </div>
         </div>
@@ -1191,6 +1280,33 @@
                     </a>
                     <span class="h5p-hint">Se abrirá el módulo de Señales de Tránsito</span>
                 </div>
+            </div>
+
+            <!-- SALA DE ENTRENAMIENTO CAT. A (Especial) -->
+            <div id="sala-entrenamiento" class="chapter special-card">
+                <div class="card-header">
+                    <div class="card-icon-badge special-badge">
+                        <div class="special-icon-wrapper">
+                            <svg fill="none" stroke="var(--gcba-yellow)" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 18h6" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 18h7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 18l1.5 -6l6 1" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9l-4 2l-1 -2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 9l2 -2l4 1" />
+                            </svg>
+                        </div>
+                        <span class="card-badge special-tag">ESPECIAL</span>
+                    </div>
+                </div>
+                <h2 class="card-title special-title">SALA DE ENTRENAMIENTO CAT. A</h2>
+                <p class="special-desc">Estudiá secuencialmente las 502 preguntas del banco oficial de CABA o ponete a prueba con simulacros de examen personalizables de 10, 30 o 50 preguntas.</p>
+                <div class="special-divider"></div>
+                <a href="javascript:void(0)" onclick="openActivityModal('formacion-vial-extreme/index.html')" class="special-btn">
+                    <span>INGRESAR A LA SALA</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
 
         </div> <!-- Cierra chapter-grid -->
