@@ -1410,6 +1410,14 @@
                 <i class="lucide-check"></i>
             `;
             
+            if (currentMode === 'exam') {
+                document.getElementById('btn-action').style.display = 'none';
+                document.getElementById('btn-cancel').style.width = '100%';
+            } else {
+                document.getElementById('btn-action').style.display = '';
+                document.getElementById('btn-cancel').style.width = '30%';
+            }
+            
             const question = selectedQuestions[currentQuestionIndex];
             
             // Progress indicators
@@ -1452,18 +1460,35 @@
         }
 
         function selectOption(index) {
-            if (isAnswerSubmitted && currentMode === 'study') return; // In study mode, locked after submission
-            
-            selectedOptionIndex = index;
-            
-            document.querySelectorAll('.option-button').forEach((btn, idx) => {
-                btn.classList.remove('selected');
-                if (idx === index) {
-                    btn.classList.add('selected');
-                }
-            });
+            if (currentMode === 'study') {
+                if (isAnswerSubmitted) return; // In study mode, locked after submission
+                
+                selectedOptionIndex = index;
+                
+                document.querySelectorAll('.option-button').forEach((btn, idx) => {
+                    btn.classList.remove('selected');
+                    if (idx === index) {
+                        btn.classList.add('selected');
+                    }
+                });
 
-            document.getElementById('btn-action').disabled = false;
+                document.getElementById('btn-action').disabled = false;
+            } else {
+                // Exam Mode: lock immediately and transition after 150ms
+                if (isAnswerSubmitted) return;
+                isAnswerSubmitted = true;
+                selectedOptionIndex = index;
+                
+                document.querySelectorAll('.option-button').forEach((btn, idx) => {
+                    btn.classList.remove('selected');
+                    btn.disabled = true; // Disable all option buttons
+                    if (idx === index) {
+                        btn.classList.add('selected');
+                    }
+                });
+
+                setTimeout(submitAnswer, 150);
+            }
         }
 
         // Timer Logic
@@ -1584,8 +1609,7 @@
             document.getElementById('progress-bar').style.width = '100%';
             
             if (currentMode === 'exam') {
-                // Go to registration screen before showing results/diploma
-                showScreen('screen-register');
+                showExamResults();
             } else {
                 // In study mode, show simple results (no diploma required)
                 showStudyResults();
@@ -1654,27 +1678,16 @@
                 document.getElementById('result-desc').innerHTML = `
                     ¡Felicitaciones! Has superado el simulacro de examen con un desempeño del <strong>${percentage}%</strong> (${score} de ${selectedQuestions.length} respuestas correctas).
                 `;
-                
-                // Populate diploma
-                document.getElementById('dip-fullname').textContent = `${registrationData.name.toUpperCase()} ${registrationData.lastname.toUpperCase()}`;
-                
-                const today = new Date();
-                const dd = String(today.getDate()).padStart(2, '0');
-                const mm = String(today.getMonth() + 1).padStart(2, '0');
-                const yyyy = today.getFullYear();
-                document.getElementById('dip-date').textContent = `${dd}/${mm}/${yyyy}`;
-                
-                document.getElementById('diploma-container').style.display = 'block';
-                document.getElementById('btn-print').style.display = 'inline-flex';
             } else {
                 document.getElementById('result-title').textContent = "SIMULACRO DESAPROBADO";
                 document.getElementById('result-desc').innerHTML = `
                     Obtuviste un <strong>${percentage}%</strong> (${score} correctas de ${selectedQuestions.length}).<br>
                     Recuerda que para aprobar necesitas un porcentaje mínimo de <strong>85%</strong>.
                 `;
-                document.getElementById('diploma-container').style.display = 'none';
-                document.getElementById('btn-print').style.display = 'none';
             }
+
+            document.getElementById('diploma-container').style.display = 'none';
+            document.getElementById('btn-print').style.display = 'none';
 
             showScreen('screen-results');
         }
