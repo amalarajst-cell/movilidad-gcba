@@ -766,16 +766,7 @@
                 <div class="mode-card special-mode">
                     <div>
                         <h3 class="mode-title">Simulacro <span class="text-red">Examen</span></h3>
-                        <p class="mode-desc">Ponte a prueba en condiciones reales. Preguntas aleatorias con un límite de 15 segundos por respuesta y calificación al finalizar.</p>
-                        
-                        <div class="quiz-config">
-                            <span class="config-label">Cantidad de preguntas</span>
-                            <div class="selector-group">
-                                <button class="selector-btn active" onclick="setQuestionsCount(10, this)">10</button>
-                                <button class="selector-btn" onclick="setQuestionsCount(20, this)">20</button>
-                                <button class="selector-btn" onclick="setQuestionsCount(30, this)">30</button>
-                            </div>
-                        </div>
+                        <p class="mode-desc">Ponte a prueba en condiciones reales con el examen completo de 30 preguntas, un límite de 15 segundos por respuesta y calificación al finalizar.</p>
                     </div>
                     <button class="btn btn-red" onclick="startExamMode()">
                         <span>INICIAR SIMULACRO</span>
@@ -1141,7 +1132,7 @@
             },
             {
                 id: 17,
-                question: "¿Qué indica la señal circular roja con una línea transversal blanca sobre fondo azul?",
+                question: "¿Qué indica la señal reglamentaria que muestra la letra 'E' tachada con una cruz roja en forma de 'X'?",
                 options: [
                     "Prohibido estacionar.",
                     "Prohibido estacionar y detenerse.",
@@ -1150,7 +1141,7 @@
                 ],
                 correctAnswer: 1,
                 sign: "no_est_det",
-                explanation: "Esta señal reglamentaria prohíbe tanto el estacionamiento prolongado como la detención momentánea del vehículo en la calzada."
+                explanation: "Esta señal prohíbe tanto el estacionamiento prolongado como la detención momentánea para ascenso o descenso de pasajeros."
             },
             {
                 id: 18,
@@ -1383,9 +1374,9 @@
         function startExamMode() {
             currentMode = 'exam';
             
-            // Randomly select N questions from database
+            // Shuffled version of all 30 questions
             const shuffled = [...QUESTIONS].sort(() => 0.5 - Math.random());
-            selectedQuestions = shuffled.slice(0, totalQuestionsConfig);
+            selectedQuestions = shuffled;
             
             currentQuestionIndex = 0;
             score = 0;
