@@ -394,6 +394,8 @@
         }
 
         .sign-svg {
+            width: 100%;
+            height: 100%;
             max-width: 100%;
             max-height: 100%;
             display: block;
@@ -1332,6 +1334,7 @@
         let timer = null;
         let timeLeft = 15;
         let selectedOptionIndex = null;
+        let isAnswerSubmitted = false;
         let registrationData = {
             name: '',
             lastname: '',
@@ -1399,6 +1402,7 @@
         // Quiz game play
         function loadQuestion() {
             selectedOptionIndex = null;
+            isAnswerSubmitted = false;
             document.getElementById('feedback-panel').style.display = 'none';
             document.getElementById('btn-action').disabled = true;
             document.getElementById('btn-action').innerHTML = `
@@ -1448,7 +1452,7 @@
         }
 
         function selectOption(index) {
-            if (selectedOptionIndex !== null && currentMode === 'study') return; // In study mode, locked after submission
+            if (isAnswerSubmitted && currentMode === 'study') return; // In study mode, locked after submission
             
             selectedOptionIndex = index;
             
@@ -1507,6 +1511,7 @@
 
         function submitAnswer() {
             stopTimer();
+            isAnswerSubmitted = true;
             const question = selectedQuestions[currentQuestionIndex];
             const isCorrect = (selectedOptionIndex === question.correctAnswer);
             
@@ -1526,12 +1531,20 @@
                 // Highlight options
                 document.querySelectorAll('.option-button').forEach((btn, idx) => {
                     btn.disabled = true;
-                    if (idx === question.correctAnswer) {
-                        btn.classList.add('correct');
-                        btn.querySelector('i').setAttribute('data-lucide', 'check-circle');
-                    } else if (idx === selectedOptionIndex) {
-                        btn.classList.add('incorrect');
-                        btn.querySelector('i').setAttribute('data-lucide', 'x-circle');
+                    const oldIcon = btn.querySelector('.option-status-icon');
+                    if (oldIcon) {
+                        const newIcon = document.createElement('i');
+                        newIcon.className = 'option-status-icon';
+                        if (idx === question.correctAnswer) {
+                            btn.classList.add('correct');
+                            newIcon.setAttribute('data-lucide', 'check-circle');
+                        } else if (idx === selectedOptionIndex) {
+                            btn.classList.add('incorrect');
+                            newIcon.setAttribute('data-lucide', 'x-circle');
+                        } else {
+                            newIcon.setAttribute('data-lucide', 'circle-dot');
+                        }
+                        oldIcon.replaceWith(newIcon);
                     }
                 });
 
