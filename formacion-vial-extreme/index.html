@@ -766,7 +766,17 @@
                 <div class="mode-card special-mode">
                     <div>
                         <h3 class="mode-title">Simulacro <span class="text-red">Examen</span></h3>
-                        <p class="mode-desc">Ponte a prueba en condiciones reales con el examen completo de 30 preguntas, un límite de 15 segundos por respuesta y calificación al finalizar.</p>
+                        <p class="mode-desc">Ponte a prueba en condiciones reales. Preguntas aleatorias con un límite de 15 segundos por respuesta y calificación al finalizar.</p>
+                        
+                        <div class="quiz-config">
+                            <span class="config-label">Cantidad de preguntas</span>
+                            <div class="selector-group">
+                                <button class="selector-btn active" onclick="setQuestionsCount(10, this)">10</button>
+                                <button class="selector-btn" onclick="setQuestionsCount(20, this)">20</button>
+                                <button class="selector-btn" onclick="setQuestionsCount(30, this)">30</button>
+                                <button class="selector-btn" onclick="setQuestionsCount('all', this)">Todas</button>
+                            </div>
+                        </div>
                     </div>
                     <button class="btn btn-red" onclick="startExamMode()">
                         <span>INICIAR SIMULACRO</span>
@@ -1374,9 +1384,11 @@
         function startExamMode() {
             currentMode = 'exam';
             
-            // Shuffled version of all 30 questions
+            // Shuffled version of all questions
             const shuffled = [...QUESTIONS].sort(() => 0.5 - Math.random());
-            selectedQuestions = shuffled;
+            
+            const count = (totalQuestionsConfig === 'all') ? QUESTIONS.length : totalQuestionsConfig;
+            selectedQuestions = shuffled.slice(0, count);
             
             currentQuestionIndex = 0;
             score = 0;
