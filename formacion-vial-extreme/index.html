@@ -754,7 +754,16 @@
                 <div class="mode-card">
                     <div>
                         <h3 class="mode-title">Estudio <span class="text-yellow">Secuencial</span></h3>
-                        <p class="mode-desc">Estudia el banco completo de 30 preguntas de examen. Sin límite de tiempo, con corrección inmediata y explicaciones técnicas de las respuestas.</p>
+                        <p class="mode-desc">Estudia las preguntas de examen. Sin límite de tiempo, con corrección inmediata y explicaciones técnicas de las respuestas.</p>
+                        
+                        <div class="quiz-config">
+                            <span class="config-label">Cantidad de preguntas</span>
+                            <div class="selector-group">
+                                <button class="selector-btn selector-study active" onclick="setQuestionsCountStudy(10, this)">10</button>
+                                <button class="selector-btn selector-study" onclick="setQuestionsCountStudy(20, this)">20</button>
+                                <button class="selector-btn selector-study" onclick="setQuestionsCountStudy('all', this)">Todas</button>
+                            </div>
+                        </div>
                     </div>
                     <button class="btn btn-yellow" onclick="startSequentialMode()">
                         <span>COMENZAR ESTUDIO</span>
@@ -771,9 +780,9 @@
                         <div class="quiz-config">
                             <span class="config-label">Cantidad de preguntas</span>
                             <div class="selector-group">
-                                <button class="selector-btn active" onclick="setQuestionsCount(10, this)">10</button>
-                                <button class="selector-btn" onclick="setQuestionsCount(20, this)">20</button>
-                                <button class="selector-btn" onclick="setQuestionsCount('all', this)">Todas</button>
+                                <button class="selector-btn selector-exam active" onclick="setQuestionsCountExam(10, this)">10</button>
+                                <button class="selector-btn selector-exam" onclick="setQuestionsCountExam(20, this)">20</button>
+                                <button class="selector-btn selector-exam" onclick="setQuestionsCountExam('all', this)">Todas</button>
                             </div>
                         </div>
                     </div>
@@ -1326,7 +1335,8 @@
 
         // State variables
         let currentMode = ''; // 'study' or 'exam'
-        let totalQuestionsConfig = 10;
+        let studyQuestionsCount = 10;
+        let examQuestionsCount = 10;
         let selectedQuestions = [];
         let currentQuestionIndex = 0;
         let score = 0;
@@ -1351,9 +1361,15 @@
             showScreen('screen-welcome');
         }
 
-        function setQuestionsCount(count, btn) {
-            totalQuestionsConfig = count;
-            document.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('active'));
+        function setQuestionsCountStudy(count, btn) {
+            studyQuestionsCount = count;
+            document.querySelectorAll('.selector-study').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function setQuestionsCountExam(count, btn) {
+            examQuestionsCount = count;
+            document.querySelectorAll('.selector-exam').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
 
@@ -1366,7 +1382,10 @@
         // Mode: Sequential Study
         function startSequentialMode() {
             currentMode = 'study';
-            selectedQuestions = [...QUESTIONS]; // All 30 questions
+            
+            const count = (studyQuestionsCount === 'all') ? QUESTIONS.length : studyQuestionsCount;
+            selectedQuestions = [...QUESTIONS].slice(0, count);
+            
             currentQuestionIndex = 0;
             score = 0;
             answersLogged = [];
@@ -1386,7 +1405,7 @@
             // Shuffled version of all questions
             const shuffled = [...QUESTIONS].sort(() => 0.5 - Math.random());
             
-            const count = (totalQuestionsConfig === 'all') ? QUESTIONS.length : totalQuestionsConfig;
+            const count = (examQuestionsCount === 'all') ? QUESTIONS.length : examQuestionsCount;
             selectedQuestions = shuffled.slice(0, count);
             
             currentQuestionIndex = 0;
