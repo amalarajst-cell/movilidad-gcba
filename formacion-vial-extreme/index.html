@@ -6849,6 +6849,7 @@
         let timeLeft = 15;
         let selectedOptionIndex = null;
         let isAnswerSubmitted = false;
+        let transitionTimeout = null;
         let registrationData = {
             name: '',
             lastname: '',
@@ -6862,6 +6863,10 @@
         // Welcome screen logic
         function goToWelcome() {
             stopTimer();
+            if (transitionTimeout) {
+                clearTimeout(transitionTimeout);
+                transitionTimeout = null;
+            }
             showScreen('screen-welcome');
         }
 
@@ -6926,22 +6931,17 @@
 
         // Quiz game play
         function loadQuestion() {
+            if (transitionTimeout) {
+                clearTimeout(transitionTimeout);
+                transitionTimeout = null;
+            }
             selectedOptionIndex = null;
             isAnswerSubmitted = false;
             document.getElementById('feedback-panel').style.display = 'none';
-            document.getElementById('btn-action').disabled = true;
-            document.getElementById('btn-action').innerHTML = `
-                <span>CONFIRMAR RESPUESTA</span>
-                <i class="lucide-check"></i>
-            `;
             
-            if (currentMode === 'exam') {
-                document.getElementById('btn-action').style.display = 'none';
-                document.getElementById('btn-cancel').style.width = '100%';
-            } else {
-                document.getElementById('btn-action').style.display = '';
-                document.getElementById('btn-cancel').style.width = '30%';
-            }
+            // Auto progression: hide action button in all modes
+            document.getElementById('btn-action').style.display = 'none';
+            document.getElementById('btn-cancel').style.width = '100%';
             
             const question = selectedQuestions[currentQuestionIndex];
             
@@ -6990,19 +6990,27 @@
         }
 
         function selectOption(index) {
+            if (transitionTimeout) {
+                clearTimeout(transitionTimeout);
+            }
+            
             if (currentMode === 'study') {
-                if (isAnswerSubmitted) return; // In study mode, locked after submission
-                
+                if (isAnswerSubmitted) return;
+                isAnswerSubmitted = true;
                 selectedOptionIndex = index;
                 
                 document.querySelectorAll('.option-button').forEach((btn, idx) => {
                     btn.classList.remove('selected');
+                    btn.disabled = true;
                     if (idx === index) {
                         btn.classList.add('selected');
                     }
                 });
 
-                document.getElementById('btn-action').disabled = false;
+                submitAnswer();
+                
+                // Advance automatically after showing correct/incorrect and technical feedback
+                transitionTimeout = setTimeout(nextQuestion, 2500);
             } else {
                 // Exam Mode: lock immediately and transition after 150ms
                 if (isAnswerSubmitted) return;
@@ -7017,7 +7025,7 @@
                     }
                 });
 
-                setTimeout(submitAnswer, 150);
+                transitionTimeout = setTimeout(submitAnswer, 150);
             }
         }
 
