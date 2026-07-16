@@ -6892,8 +6892,11 @@
         function startSequentialMode() {
             currentMode = 'study';
             
+            // Shuffle to ensure a random set of questions on every attempt
+            const shuffled = [...QUESTIONS].sort(() => 0.5 - Math.random());
+            
             const count = (studyQuestionsCount === 'all') ? QUESTIONS.length : studyQuestionsCount;
-            selectedQuestions = [...QUESTIONS].slice(0, count);
+            selectedQuestions = shuffled.slice(0, count);
             
             currentQuestionIndex = 0;
             score = 0;
@@ -7192,7 +7195,7 @@
             document.getElementById('result-score').textContent = `${percentage}%`;
             document.getElementById('result-title').textContent = "¡ESTUDIO COMPLETADO!";
             document.getElementById('result-desc').innerHTML = `
-                Terminaste de estudiar las 30 preguntas de seguridad vial.<br>
+                Terminaste de estudiar las ${selectedQuestions.length} preguntas de seguridad vial.<br>
                 Obtuviste <strong>${score} correctas</strong> de <strong>${selectedQuestions.length} totales</strong> (${percentage}%).
             `;
 
