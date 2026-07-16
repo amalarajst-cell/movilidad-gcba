@@ -1497,6 +1497,25 @@
             border: none;
             border-radius: 10px;
         }
+
+        @media (max-width: 600px) {
+            .activity-modal-content {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                border: none;
+            }
+            .activity-iframe {
+                border-radius: 0;
+            }
+            .activity-modal-close {
+                top: 12px;
+                right: 12px;
+                width: 38px;
+                height: 38px;
+                font-size: 22px;
+            }
+        }
     </style>
     <script>
         function openActivityModal(url) {
